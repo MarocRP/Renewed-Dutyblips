@@ -9,7 +9,6 @@ version '2.0.1'
 
 shared_scripts {
     '@ox_lib/init.lua',
-    '@Renewed-Lib/init.lua'
 }
 client_script 'client/main.lua'
 server_script 'server/main.lua'
@@ -19,3 +18,5 @@ files {
     'client/blip.lua',
     'client/utils.lua'
 }
+
+lua54 'yes'

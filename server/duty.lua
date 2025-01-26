@@ -30,12 +30,14 @@ end
 
 local function addPolice(source)
     if not isCopOnDuty(source) then
-        local playerData = Renewed.getPlayer(source) -- luacheck: ignore
-
-        if not playerData then
+        local player = exports.qbx_core:GetPlayer(source)
+        if not player then
             return
         end
-
+        local playerData = {
+            name = player.PlayerData.charinfo.firstname .. ' ' .. player.PlayerData.charinfo.lastname,
+            Groups = exports.qbx_core:GetGroups(source)
+        }
         local getBlipColor = groupCheck(playerData.Groups)
 
         if getBlipColor then
@@ -65,7 +67,6 @@ local function removePolice(source)
 
     if index then
         table.remove(currentDuty, index)
-
         Player(source).state:set('renewed_dutyblips', false, true)
         triggerDutyEvent('Renewed-Dutyblips:removeOfficer', index)
         TriggerClientEvent('Renewed-Dutyblips:goOffDuty', source)

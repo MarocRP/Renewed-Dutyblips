@@ -4,7 +4,7 @@ return {
     ]]
     dutyJobs = {
         ['police'] = 38,
-        ['civilprotection'] = 47,
+        ['firefighter'] = 47,
         ['ambulance'] = 49
     },
 
